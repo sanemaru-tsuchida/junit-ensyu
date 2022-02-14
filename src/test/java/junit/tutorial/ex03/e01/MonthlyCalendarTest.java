@@ -4,30 +4,25 @@ import static org.junit.jupiter.api.Assertions.*;
 
 import java.time.LocalDate;
 
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.DisplayName;
+
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.CsvSource;
 
 class MonthlyCalendarTest {
 
-	@Test
-	void test() {
-		LocalDate date = LocalDate.of(2012, 1, 31);
-
-		MonthlyCalendar monthlyCalendar = new MonthlyCalendar(date);
-
-		assertEquals(0, monthlyCalendar.getRemainingDays(),"2012/1/31の場合,0を返す");
-		
-		LocalDate date2 = LocalDate.of(2012, 1, 30);
-
-		MonthlyCalendar monthlyCalendar2 = new MonthlyCalendar(date2);
-
-		assertEquals(1, monthlyCalendar2.getRemainingDays(),"2012/1/30の場合,0を返す");
-		LocalDate date3 = LocalDate.of(2012, 2, 1);
-
-		MonthlyCalendar monthlyCalendar3 = new MonthlyCalendar(date3);
-
-		assertEquals(28, monthlyCalendar3.getRemainingDays(),"2012/2/1の場合,0を返す");
+	@ParameterizedTest
+	@DisplayName("3-1 日にちテスト")
+	@CsvSource({
+		"2012-01-31, 0",
+		"2012-01-30, 1",
+		"2012-02-01, 28"
+	})
+	void test(LocalDate cal, int exptected) {
+		MonthlyCalendar calendar = new MonthlyCalendar(cal);
+		assertEquals(exptected, calendar.getRemainingDays());
 	}
+
 
 	
 
