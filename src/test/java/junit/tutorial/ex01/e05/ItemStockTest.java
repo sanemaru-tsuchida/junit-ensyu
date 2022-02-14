@@ -2,6 +2,7 @@ package junit.tutorial.ex01.e05;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 class ItemStockTest {
@@ -9,6 +10,8 @@ class ItemStockTest {
 	private Item item = new Item();
 
 	@Test
+	@DisplayName("1-5")
+
 	void test() {
 		assertEquals(0, itemStock.getNum(item),"初期状態で、getNumで０が取得できる");
 		/** アイテム追加*/

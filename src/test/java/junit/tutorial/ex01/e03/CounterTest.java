@@ -2,11 +2,14 @@ package junit.tutorial.ex01.e03;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 class CounterTest {
 	private Counter counter = new Counter();
 	@Test
+	@DisplayName("1-3")
+
 	void test() {
 		assertEquals(1, counter.increment(),"incrementメソッドを実行すると１が取得できる");
 		assertEquals(2, counter.increment(),"・incrementメソッドを１回実行した状態で、incrementメソッドを実行すると２が取得できる");
