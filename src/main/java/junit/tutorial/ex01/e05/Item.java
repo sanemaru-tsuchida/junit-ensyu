@@ -2,6 +2,7 @@ package junit.tutorial.ex01.e05;
 
 public class Item {
 	
+	public Item() {}
 	public Item(String name, int price) {
 		super();
 		this.name = name;
