@@ -11,19 +11,21 @@ import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.List;
 
-
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 class EmployeeTest {
 	private Employee employee = new Employee();
 
 	@Test
+	@DisplayName("2-2")
 	void index() {
 
 		try {
+			//** これでファイルを渡す。クローズが相手側で設定されているので.loadを呼ぶのは一回だけ。そうしないとエラーが出る。*/
 			InputStream fileStream = new FileInputStream(
 					"C:\\env\\springworkspace\\junit-ensyu\\src\\test\\java\\junit\\tutorial\\ex02\\e02\\Employee.txt");
-
+			//**リスト作成 別にやらなくていい*/
 			List<Employee> empList = new ArrayList<>();
 			employee.setFirstName("Ichiro");
 			employee.setLastName("Tanaka");
